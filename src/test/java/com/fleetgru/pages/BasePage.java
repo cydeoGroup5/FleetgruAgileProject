@@ -1,6 +1,6 @@
 package com.fleetgru.pages;
 
-import com.fleetgru.utilities.BrowserUtils;
+import com.fleetgru.utilities.BrowserUtils2;
 import com.fleetgru.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -23,7 +23,7 @@ public abstract class BasePage {
      * Navigating for dashboard page
      */
     public void navigateToHomePage(){
-        BrowserUtils.waitForClickablility(By.linkText("Fleet Management"),5);
+        BrowserUtils2.waitForClickablility(By.linkText("Fleet Management"),5);
         homePageLink.click();
     }
 
@@ -57,19 +57,19 @@ public abstract class BasePage {
         String moduleLocator = "//span[normalize-space()='"+module+"' and contains(@class, 'title title-level-2')]";
 
         try {
-            BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
+            BrowserUtils2.waitForClickablility(By.xpath(tabLocator), 5);
             WebElement tabElement = Driver.get().findElement(By.xpath(tabLocator));
             new Actions(Driver.get()).moveToElement(tabElement).pause(200).doubleClick(tabElement).build().perform();
         } catch (Exception e) {
-            BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
+            BrowserUtils2.clickWithWait(By.xpath(tabLocator), 5);
         }
         try {
-            BrowserUtils.waitForPresenceOfElement(By.xpath(moduleLocator), 5);
-            BrowserUtils.waitForVisibility(By.xpath(moduleLocator), 5);
-            BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath(moduleLocator)));
+            BrowserUtils2.waitForPresenceOfElement(By.xpath(moduleLocator), 5);
+            BrowserUtils2.waitForVisibility(By.xpath(moduleLocator), 5);
+            BrowserUtils2.scrollToElement(Driver.get().findElement(By.xpath(moduleLocator)));
             Driver.get().findElement(By.xpath(moduleLocator)).click();
         } catch (Exception e) {
-            BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
+            BrowserUtils2.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
         }
     }
 
@@ -81,7 +81,7 @@ public abstract class BasePage {
      */
     public void logOut(){
         waitUntilLoaderMaskDisappear();
-        BrowserUtils.waitForClickablility(By.id("user-menu"),10);
+        BrowserUtils2.waitForClickablility(By.id("user-menu"),10);
         Driver.get().findElement(By.id("user-menu")).click();
         Driver.get().findElement(By.linkText("Logout")).click();
     }
