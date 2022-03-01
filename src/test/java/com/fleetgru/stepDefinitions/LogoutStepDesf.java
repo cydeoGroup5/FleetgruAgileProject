@@ -1,7 +1,7 @@
 package com.fleetgru.stepDefinitions;
 
 import com.fleetgru.pages.DashboardPage;
-import com.fleetgru.utilities.BrowserUtils2;
+import com.fleetgru.utilities.BrowserUtils;
 import com.fleetgru.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,7 +23,7 @@ public class LogoutStepDesf {
      */
     @Then("user should ends up the {string} page")
     public void user_should_ends_up_the_page(String expectedPage) {
-        BrowserUtils2.waitFor(2);
+        BrowserUtils.waitFor(2);
         Assert.assertEquals("Page titles are not same",expectedPage, Driver.get().getTitle());
     }
 }
