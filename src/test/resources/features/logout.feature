@@ -39,7 +39,7 @@ Feature: Logout Function
       | store manager |
       | sales manager |
 
-  @tabScenario
+
   Scenario Outline: Verify user logged out after closing the open tab
     When user login as "<userType>"
     And user open a new tab
@@ -53,7 +53,7 @@ Feature: Logout Function
       | store manager |
       | sales manager |
 
-  @tabsScenario
+
   Scenario Outline: Verify user logged out after closing all the open tabs
     When user login as "<userType>"
     And user open a new tab
