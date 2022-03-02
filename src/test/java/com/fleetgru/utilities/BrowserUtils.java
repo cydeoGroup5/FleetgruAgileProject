@@ -373,4 +373,44 @@ public class BrowserUtils {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
+    /**
+     * Open a new blank tab and switch driver to this new tab
+     */
+    public static void openNewTab(){
+        ((JavascriptExecutor)Driver.get()).executeScript("window.open('','_blank');");
+        for (String window : Driver.get().getWindowHandles()) {
+            Driver.get().switchTo().window(window);
+            if(Driver.get().getTitle().equals("Untitled")){
+                return;
+            }
+        }
+    }
+
+    /**
+     * Open a new tab and navigates to given url
+     * ATTENTION: driver will be stayed on the current(previous) tab, not the new opening tab
+     */
+    public static void openNewTab(String url){
+        ((JavascriptExecutor)Driver.get()).executeScript("window.open('"+url+"','_blank');");
+    }
+
+    /**
+     * This method close the tab/tabs which have the given title
+     * And switch to tab which have different title
+     * @param pageTitle
+     */
+    public static void closeSpecificTab(String pageTitle){
+        String newTab = "";
+        for (String window : Driver.get().getWindowHandles()) {
+            Driver.get().switchTo().window(window);
+            if (Driver.get().getTitle().equals(pageTitle)){
+                Driver.get().close();
+            }else{
+                newTab = window;
+            }
+        }
+        Driver.get().switchTo().window(newTab);
+    }
+
 }
