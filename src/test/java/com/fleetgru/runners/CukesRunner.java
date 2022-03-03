@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/fleetgru/stepDefinitions",
         dryRun = false,
-        tags = "@login or @logout"
+        tags = "@wip"
 )
 
 public class CukesRunner {

@@ -34,7 +34,7 @@ public class BrowserUtils {
      */
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.get());
-        actions.moveToElement(element).perform();
+        actions.moveToElement(element).pause(80).perform();
     }
 
     /**
