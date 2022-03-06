@@ -12,7 +12,7 @@
   3)  add and commit your changes
 
 
-  4) push your changes to remote
+  4) push your changes to remote smoke
   after you push your changes
 
   make sure
