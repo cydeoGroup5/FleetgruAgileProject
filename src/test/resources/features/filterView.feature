@@ -30,7 +30,7 @@ Feature: As a store manager and sales manager, I should be able to add an event[
 
 
 	#User can apply filters by typing the filter name, from the 'Manage Filters' menu.
-	@FLEETG-848 @FLEETG-851
+	@FLEETG-848 @FLEETG-851 @onur @smoke
 	Scenario Outline: User can apply filters by typing the filter name, from the 'Manage Filters' menu.
 		And user click "Manage Filter"
 		    When user apply filters by typing "<manage filters options>"
