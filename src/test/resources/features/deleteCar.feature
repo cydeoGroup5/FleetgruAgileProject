@@ -1,3 +1,4 @@
+@wip
 Feature: Delete A Car
   Background:
     Given user on the login page
@@ -74,7 +75,7 @@ Feature: Delete A Car
       |sales manager|
       |store manager|
 
-  @wip
+
   Scenario Outline: When A Car Deleted, it is also be removed from the Fleet-Vehicle page <userType>
     When user login as "<userType>"
     And user should navigate to "Fleet" "Vehicles" tab
