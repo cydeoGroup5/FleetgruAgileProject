@@ -1,9 +1,5 @@
 package com.fleetgru.stepDefinitions;
 
-import com.fleetgru.utilities.ConfigurationReader;
-import com.fleetgru.utilities.BrowserUtils;
-
-
 import com.fleetgru.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
