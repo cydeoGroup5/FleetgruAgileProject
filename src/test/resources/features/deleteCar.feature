@@ -1,4 +1,4 @@
-@wip
+
 Feature: Delete A Car
   Background:
     Given user on the login page
@@ -38,7 +38,7 @@ Feature: Delete A Car
     And user hover over the three dots at the end of each row for driver
     When user clicks on delete button
     Then Delete Confirmation popup should be displayed
-
+  @smoke
   Scenario: You do not have permission to perform this action message for driver
     When user login as "driver"
     And user should navigate to "Fleet" "Vehicles" tab
@@ -47,7 +47,7 @@ Feature: Delete A Car
     Then Delete Confirmation popup should be displayed
     When user clicks Yes Delete button
     Then "You do not have permission to perform this action." message should be displayed for driver
-
+  @smoke
   Scenario Outline: Sales Manager and Store Manager can delete a car <userType>
     When user login as "<userType>"
     And user should navigate to "Fleet" "Vehicles" tab
