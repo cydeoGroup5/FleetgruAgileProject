@@ -11,6 +11,9 @@ import java.util.List;
 
 public class VehiclesPage extends BasePage{
 
+    @FindBy(xpath = "//div/a[contains(text(),'Create Car')]")
+    public WebElement createCarBtn;
+
     @FindBy(xpath = "//tbody/tr[2]/td[21]")
     public WebElement dots;
 
