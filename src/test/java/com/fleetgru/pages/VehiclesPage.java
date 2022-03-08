@@ -4,10 +4,18 @@ import com.fleetgru.utilities.BrowserUtils;
 import com.fleetgru.utilities.Driver;
 import org.apache.commons.io.filefilter.FalseFileFilter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.text.html.CSS;
 import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 public class VehiclesPage extends BasePage{
 
@@ -71,6 +79,15 @@ public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//table//tbody/tr//td[@class='title-cell']")
     public List<WebElement> gridSettingsList;
 
+    @FindBy(css = ".column-manager-search")
+    public WebElement quickSearch;
+
+    @FindBy(css = ".grid-header")
+    public WebElement tableHeader;
+
+    @FindBy(css = ".fa-arrows-v.handle.ui-sortable-handle")
+    public List<WebElement> sort;
+
     public void clickDeleteButton(){
         for (WebElement webElement : Driver.get().findElements(By.xpath("//a[@title='Delete']"))) {
             if (webElement.isEnabled()){
@@ -78,10 +95,64 @@ public class VehiclesPage extends BasePage{
             }
         }
     }
-
     public String getfirstrowText(){
         return row1.getText();
     }
+
+
+
+    public void typeAnyOptionForQuickSearch(String columnName){
+            WebDriverWait t = new WebDriverWait(Driver.get(), 15);
+            t.until(ExpectedConditions.visibilityOf(quickSearch));
+
+            Actions actions=new Actions(Driver.get());
+
+            BrowserUtils.waitFor(2);
+            actions.sendKeys(columnName).perform();
+        }
+
+        public boolean isQuickSearchWorkingProperly(String columnName){
+            boolean verify=false;
+            for (WebElement webElement : gridSettingsList) {
+                if(webElement.getText().equals(columnName)&& webElement.isDisplayed()){
+                    verify=true;
+                }
+            }
+            return verify;
+        }
+       
+
+
+
+
+    public void clickOnColumnNames(String columnName){
+        for (WebElement webElement : gridSettingsList) {
+            if(webElement.getText().equals(columnName)){
+                BrowserUtils.waitFor(2);
+                webElement.click();
+                webElement.click();
+            }
+        }
+    }
+
+    public boolean isColumnNameDisplayed(String arg0){
+        if(tableHeader.getText().contains(arg0.toUpperCase())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public void dragAndDropColumns(){
+        Actions actions=new Actions(Driver.get());
+        BrowserUtils.waitFor(2);
+        actions.clickAndHold(sort.get(5)).perform();
+        BrowserUtils.waitFor(3);
+        actions.dragAndDropBy(sort.get(5),0,50).perform();
+    }
+
+
+
 
 
 }
