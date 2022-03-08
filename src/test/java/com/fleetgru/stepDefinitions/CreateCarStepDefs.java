@@ -35,12 +35,12 @@ public class CreateCarStepDefs {
 
     @Then("user should see Create Car button")
     public void user_should_see_Create_Car_button() {
-        Assert.assertTrue(vehiclePage.getCreateCarBtn().isDisplayed());
+        Assert.assertTrue(vehiclePage.createCarBtn.isDisplayed());
     }
 
     @When("user click Create Car button")
     public void user_click_Create_Car_button() {
-        vehiclePage.getCreateCarBtn().click();
+        vehiclePage.createCarBtn.click();
         vehiclePage.waitUntilLoaderMaskDisappear();
     }
 

@@ -10,18 +10,17 @@ Feature: Create Car Function
 #    And user navigate to "Fleet" "Vehicles"
 #    Then user should not see Create Car button
 
-  @done
+
   Scenario Outline: Verify that managers can see Create Car button
     When user login as "<userType>"
     And user navigate to "Fleet" "Vehicles"
     Then user should see Create Car button
-
     Examples:
       | userType      |
       | store manager |
       | sales manager |
 
-  @done
+
   Scenario: Verify that user can see all data titles
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
@@ -48,7 +47,7 @@ Feature: Create Car Function
       | Power (KW)                    |
       | Logo                          |
 
-  @done
+
   Scenario: Verify that user see following options for tags
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
@@ -63,7 +62,7 @@ Feature: Create Car Function
       | Sedan        |
       | Convertible  |
 
-  @done
+
   Scenario: Verify that user see following option under Transmission dropdown
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
@@ -72,7 +71,7 @@ Feature: Create Car Function
       | Manual    |
       | Automatic |
 
-  @done
+
   Scenario: Verify that user see following option under Fuel Type dropdown
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
@@ -83,7 +82,7 @@ Feature: Create Car Function
       | Electric |
       | Hybrid   |
 
-  @done
+
   Scenario: Verify that user can upload Logo
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
@@ -91,7 +90,7 @@ Feature: Create Car Function
     And user upload "logo.png"
     Then user can upload "logo.png"
 
-  @done
+
   Scenario: Verify that user can select 3 different save option
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
@@ -102,7 +101,7 @@ Feature: Create Car Function
       | Save           |
 
 
-  @firstCheck
+
   Scenario Outline: Verify that user can create car
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
@@ -134,8 +133,7 @@ Feature: Create Car Function
     Examples:
       | saveButton     |
       | Save           |
-#      | Save and New   |
-#      | Save and Close |
+
 
 
     #TODO: Create a unhappy path scenario and use SoftAssertion
