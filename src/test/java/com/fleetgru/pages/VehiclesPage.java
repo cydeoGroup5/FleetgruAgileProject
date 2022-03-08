@@ -91,18 +91,15 @@ public class VehiclesPage extends BasePage{
 
     }
 
-    public boolean getColumnOrder(String order){
+    public boolean getColumnOrder(String order,String column){
         List<String> drivers = new ArrayList<>();
         List<String> sortedDrivers = new ArrayList<>();
 
         for (int i = 10; i <= 15; i++) {
-            drivers.add(Driver.get().findElement(By.xpath("(//tbody/tr/td[contains(@class,'cell-Driver')])["+i+"]")).getText());
-
+            drivers.add(Driver.get().findElement(By.xpath("(//tbody/tr/td[contains(@data-column-label,'"+column+"')])["+i+"]")).getText());
+            sortedDrivers.add(Driver.get().findElement(By.xpath("(//tbody/tr/td[contains(@data-column-label,'"+column+"')])["+i+"]")).getText());
         }
-        System.out.println("drivers1 = " + drivers);
-        System.out.println("sortedDrivers1 = " + sortedDrivers);
 
-        sortedDrivers = drivers;
         Collections.sort(sortedDrivers);
 
         switch (order){
@@ -112,9 +109,6 @@ public class VehiclesPage extends BasePage{
                 Collections.reverse(sortedDrivers);
                 break;
         }
-
-        System.out.println("drivers2 = " + drivers);
-        System.out.println("sortedDrivers2 = " + sortedDrivers);
 
         if(sortedDrivers.equals(drivers)){
           return true;

@@ -65,43 +65,30 @@ public class VehicleTableStepDefs {
 
     }
 
-    @When("user click any column")
-    public void userClickAnyColumn() {
-
-        WebElement column1 = Driver.get().findElement(By.xpath("//thead/tr[1]/th[4]/a[1]/span[1]"));
-        column1.click();
-        BrowserUtils.waitFor(2);
-
-        }
-
-    @When("user click any column two times")
-    public void userClickAnyColumnTwoTimes() {
-
-        WebElement column1 = Driver.get().findElement(By.xpath("//thead/tr[1]/th[4]/a[1]/span[1]"));
-        column1.click();
+    @When("user click any {string} two times")
+    public void userClickAnyTwoTimes(String header) {
+        WebElement element = Driver.get().findElement(By.xpath("//span[normalize-space()='" + header + "'][@class='grid-header-cell__label']"));
+        BrowserUtils.scrollToElement(element);
+        BrowserUtils.waitForClickablility(element,5);
+        element.click();
         BrowserUtils.waitFor(1);
-        column1.click();
+        element.click();
         BrowserUtils.waitFor(1);
     }
 
-
-    @Then("user should see column in {string} order")
-    public void userShouldSeeColumnInOrder(String order) {
-
-        Assert.assertTrue(vp.getColumnOrder(order));
+    @Then("user should see {string} in {string} order")
+    public void userShouldSeeInOrder(String column, String order) {
+        Assert.assertTrue(vp.getColumnOrder(order,column));
     }
 
 
     @When("user click any {string}")
     public void userClickAny(String header) {
-
-        vp.getColumnOrder("ascending");
-
         WebElement element = Driver.get().findElement(By.xpath("//span[normalize-space()='" + header + "'][@class='grid-header-cell__label']"));
         BrowserUtils.scrollToElement(element);
         BrowserUtils.waitForClickablility(element,5);
         element.click();
-
-        vp.getColumnOrder("ascending");
+        BrowserUtils.waitFor(2);
     }
+
 }

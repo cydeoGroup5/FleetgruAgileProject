@@ -31,14 +31,14 @@ Feature: Vehicle Table Arrangements
   Scenario Outline: ascending order clicking the <column> name
 
     When user click any "<column>"
-    Then user should see column in "ascending" order
+    Then user should see "<column>" in "ascending" order
 
     Examples:
       | column               |
       | License Plate        |
-      | Tags                 |
+#      | Tags                 |
 #      | Driver               |
-#      | Location             |
+#     | Location             |
 #      | Model Year           |
 #      | Chassis Number       |
 #      | Last Odometer        |
@@ -56,7 +56,10 @@ Feature: Vehicle Table Arrangements
 #      | Power (kW)           |
 
 
-  Scenario: descending order clicking the column name
+  Scenario Outline: descending order clicking the column name
 
-    When user click any column two times
-    Then user should see column in "descending" order
+    When user click any "<column>" two times
+    Then user should see "<column>" in "descending" order
+    Examples:
+      | column               |
+      | Driver        |
