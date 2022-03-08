@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class VehiclesPage extends BasePage{
 
     @FindBy(xpath = "//tbody/tr[2]/td[21]")
@@ -59,6 +61,15 @@ public class VehiclesPage extends BasePage{
 
     @FindBy(xpath = "//body/div[@id='page']/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div[1]/table[1]")
     public WebElement table;
+
+    @FindBy(css = ".fa-cog.hide-text")
+    public WebElement gearIcon;
+
+    @FindBy(css = ".column-manager-title")
+    public WebElement gridSettingsText;
+
+    @FindBy(xpath = "//table//tbody/tr//td[@class='title-cell']")
+    public List<WebElement> gridSettingsList;
 
     public void clickDeleteButton(){
         for (WebElement webElement : Driver.get().findElements(By.xpath("//a[@title='Delete']"))) {
