@@ -1,4 +1,4 @@
-@wip
+
 Feature: Delete A Car
   Background:
     Given user on the login page
