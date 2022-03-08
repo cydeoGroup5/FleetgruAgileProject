@@ -6,7 +6,6 @@ import org.apache.commons.io.filefilter.FalseFileFilter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
 
 public class VehiclesPage extends BasePage{
@@ -27,12 +26,12 @@ public class VehiclesPage extends BasePage{
     public WebElement filterIcon;
     //onur
     @FindBy(linkText = "Manage filters")
-    public  WebElement manageFilters;
+    public WebElement manageFilters;
     //onur
     @FindBy(xpath = "//body/div[@id='page']/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]")
     public WebElement searchBoxInput;
     //onur
-    @FindBy(xpath= "//label[@title=\"Tags\"]")
+    @FindBy(xpath = "//label[@title=\"Tags\"]")
     public WebElement option1;
     //onur
     @FindBy(xpath = "(//*[@class='fa-refresh'])[2]")
@@ -65,6 +64,33 @@ public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//body/div[@id='page']/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div[1]/table[1]")
     public WebElement table;
 
+    @FindBy(xpath = "//*[contains(@class, 'grid table-hover table table-bordered table-condensed')]")
+    public WebElement vehicleTable;
+
+    @FindBy(xpath = "//*[contains(@class, 'input-widget')]")
+    public WebElement pageNumber;
+
+    @FindBy(xpath = "//*[contains(@class, 'fa-chevron-right hide-text')]")
+    public WebElement pageForwardBtn;
+
+    @FindBy(xpath = "//*[contains(@class, 'fa-chevron-left hide-text')]")
+    public WebElement pageBackwardsBtn;
+
+    @FindBy(xpath = "//*[contains(text(), 'Total of 169 records')]")
+    public WebElement totalRecordings;
+
+    @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[2]/div[2]/div/div/a")
+    public WebElement exportBtn;
+
+    @FindBy(xpath = "//a[@title='CSV']")
+    public WebElement csvBtn;
+
+    @FindBy(xpath = "//a[@title='XLSX']")
+    public WebElement xlsxBtn;
+
+    @FindBy(xpath = "//*[contains(@class, 'alert alert-success fade in top-messages')]")
+    public WebElement exportMessage;
+
     @FindBy(css = ".fa-cog.hide-text")
     public WebElement gearIcon;
 
@@ -76,13 +102,13 @@ public class VehiclesPage extends BasePage{
 
     public void clickDeleteButton(){
         for (WebElement webElement : Driver.get().findElements(By.xpath("//a[@title='Delete']"))) {
-            if (webElement.isEnabled()){
+            if (webElement.isEnabled()) {
                 BrowserUtils.clickWithJS(webElement);
             }
         }
     }
 
-    public String getfirstrowText(){
+    public String getfirstrowText() {
         return row1.getText();
     }
 
