@@ -22,3 +22,17 @@
   */
 
   Feature: Smoke
+    @FLEETG-848 @FLEETG-851 @onur @smoke
+    Scenario Outline: User can apply filters by typing the filter name, from the 'Manage Filters' menu.
+      And user click "Manage Filter"
+      When user apply filters by typing "<manage filters options>"
+      Then the "<manage filters options>" should be seen and clickable
+      Examples:
+        | manage filters options |
+        | Tags                   |
+        | License Plate          |
+        | Driver                 |
+        | Location               |
+        | Chassis Number         |
+        | Model Year             |
+        | Last Odometer          |
