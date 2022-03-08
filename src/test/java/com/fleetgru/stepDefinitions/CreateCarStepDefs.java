@@ -1,24 +1,21 @@
 package com.fleetgru.stepDefinitions;
 
-import com.fleetgru.pages.CreateCarPage_omer;
+import com.fleetgru.pages.CreateCarPage;
 import com.fleetgru.pages.DashboardPage;
-import com.fleetgru.pages.VehiclesPage_omer;
+import com.fleetgru.pages.VehiclesPage;
 import com.fleetgru.utilities.BrowserUtils;
-import com.fleetgru.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.Map;
 
 public class CreateCarStepDefs {
 
-    CreateCarPage_omer carPage = new CreateCarPage_omer();
-    VehiclesPage_omer vehiclePage = new VehiclesPage_omer();
+    CreateCarPage carPage = new CreateCarPage();
+    VehiclesPage vehiclePage = new VehiclesPage();
 
     @When("user navigate to {string} {string}")
     public void user_navigate_to(String tab, String module) {
@@ -30,7 +27,7 @@ public class CreateCarStepDefs {
 
     @Then("user should not see Create Car button")
     public void user_should_not_see_Create_Car_button() {
-        VehiclesPage_omer vehicle = new VehiclesPage_omer();
+        VehiclesPage vehicle = new VehiclesPage();
     }
 
     @Then("user should see Create Car button")
@@ -69,8 +66,8 @@ public class CreateCarStepDefs {
         carPage.uploadFile(logo);
     }
 
-    @Then("user can upload {string}")
-    public void userCanUpload(String logo) {
+    @Then("user should see {string} inside input box")
+    public void userShouldSeeInsideInputBox(String logo) {
         Assert.assertTrue(carPage.uploadInputBox.getAttribute("value").contains(logo));
     }
 
@@ -87,14 +84,8 @@ public class CreateCarStepDefs {
 
     @Then("user should see {string} message after saving")
     public void user_should_see_message_after_saving(String expectedMsg) {
-        BrowserUtils.waitFor(5);
+        BrowserUtils.waitForPageToLoad(5);
         Assert.assertEquals(expectedMsg,carPage.getMsg());
-    }
-
-    @Then("user get titles")
-    public void userGetTitles() {
-        CreateCarPage_omer page = new CreateCarPage_omer();
-        page.getDataTitles();
     }
 
     @And("user fill the form")

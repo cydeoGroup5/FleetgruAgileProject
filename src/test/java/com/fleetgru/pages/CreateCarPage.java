@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class CreateCarPage_omer extends BasePage{
+public class CreateCarPage extends BasePage{
 
     @FindBy(xpath = "//div[@class='control-label wrap']/label")
     public List<WebElement> dataTitles;

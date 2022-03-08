@@ -6,7 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class VehiclesPage_omer extends BasePage{
+public class VehiclesPage extends BasePage{
 
     @FindBy(xpath = "//div/a[contains(text(),'Create Car')]")
     public WebElement createCarBtn;

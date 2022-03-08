@@ -1,19 +1,14 @@
 package com.fleetgru.stepDefinitions;
 
-import com.fleetgru.pages.CreateCarPage_omer;
+import com.fleetgru.pages.CreateCarPage;
 import com.fleetgru.pages.DashboardPage;
-import com.fleetgru.pages.VehiclesPage_omer;
+import com.fleetgru.pages.VehiclesPage;
 import com.fleetgru.utilities.BrowserUtils;
 import com.fleetgru.utilities.Driver;
 import com.github.javafaker.Faker;
-import io.cucumber.java.bs.A;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class MyTestClass {
 
@@ -28,11 +23,11 @@ public class MyTestClass {
         BrowserUtils.waitFor(3);
         new DashboardPage().navigateTo("Fleet","Vehicles");
         BrowserUtils.waitFor(4);
-        new VehiclesPage_omer().waitUntilLoaderMaskDisappear();
+        new VehiclesPage().waitUntilLoaderMaskDisappear();
 
         Driver.get().findElement(By.partialLinkText("Create Car")).click();
 
-        CreateCarPage_omer page = new CreateCarPage_omer();
+        CreateCarPage page = new CreateCarPage();
         page.waitUntilLoaderMaskDisappear();
         BrowserUtils.waitFor(5);
 
