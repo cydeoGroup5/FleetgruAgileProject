@@ -57,6 +57,34 @@
       Then "Item deleted" message should be displayed for sales and store manager
 
       Examples:
-        |userType|
-        |sales manager|
-        |store manager|
+        | userType      |
+        | sales manager |
+        | store manager |
+    @smoke @zafer
+    Scenario: Column names in grid settings
+      Given user on the login page
+      #it can be any user type
+      When user login as "store manager"
+      And user should navigate to "Fleet" "Vehicles" tab
+      When user clicks on the gear icon
+      Then user should be able to see following options
+        | Id                        |
+        | License Plate             |
+        | Tags                      |
+        | Driver                    |
+        | Location                  |
+        | Chassis Number            |
+        | Model Year                |
+        | Last Odometer             |
+        | Immatriculation Date      |
+        | First Contract Date       |
+        | Catalog Value (VAT Incl.) |
+        | Seats Number              |
+        | Doors Number              |
+        | Color                     |
+        | Transmission              |
+        | Fuel Type                 |
+        | CO2 Emissions             |
+        | Horsepower                |
+        | Horsepower Taxation       |
+        | Power (KW)                |
