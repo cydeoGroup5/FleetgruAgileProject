@@ -6,8 +6,9 @@ import org.apache.commons.io.filefilter.FalseFileFilter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import java.util.List;
 
-public class VehiclesPage extends BasePage {
+public class VehiclesPage extends BasePage{
 
     @FindBy(xpath = "//tbody/tr[2]/td[21]")
     public WebElement dots;
@@ -87,7 +88,16 @@ public class VehiclesPage extends BasePage {
     @FindBy(xpath = "//*[contains(@class, 'alert alert-success fade in top-messages')]")
     public WebElement exportMessage;
 
-    public void clickDeleteButton() {
+    @FindBy(css = ".fa-cog.hide-text")
+    public WebElement gearIcon;
+
+    @FindBy(css = ".column-manager-title")
+    public WebElement gridSettingsText;
+
+    @FindBy(xpath = "//table//tbody/tr//td[@class='title-cell']")
+    public List<WebElement> gridSettingsList;
+
+    public void clickDeleteButton(){
         for (WebElement webElement : Driver.get().findElements(By.xpath("//a[@title='Delete']"))) {
             if (webElement.isEnabled()) {
                 BrowserUtils.clickWithJS(webElement);
