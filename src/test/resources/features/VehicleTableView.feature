@@ -31,7 +31,7 @@ Feature: Vehicle Table View
       | sales manager |
       | store manager |
 
-  @smoke
+
   Scenario Outline: User can go to next page clicking ">" button and can go to previous page clicking "<" button
     Given user login as "<userType>"
     Given user should navigate to "Fleet" "Vehicles" tab
@@ -53,7 +53,7 @@ Feature: Vehicle Table View
       | sales manager |
       | store manager |
 
-  @smoke
+
   Scenario Outline: User can download table data in XLS or CSV format from "Export Grid"
     Given user login as "<userType>"
     Given user should navigate to "Fleet" "Vehicles" tab

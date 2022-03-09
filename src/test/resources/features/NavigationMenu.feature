@@ -27,7 +27,7 @@ Feature: Navigation menu
       | sales manager |
       | store manager |
 
-@Smoke
+
   Scenario Outline: Verify to see the General Information page for driver
     Given user login as "<userType>"
     When the user navigates to "Fleet", "Vehicles"
