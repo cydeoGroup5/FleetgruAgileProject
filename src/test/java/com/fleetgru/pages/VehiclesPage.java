@@ -132,5 +132,7 @@ public class VehiclesPage extends BasePage{
         return row1.getText();
     }
 
+    //
+
 
 }
