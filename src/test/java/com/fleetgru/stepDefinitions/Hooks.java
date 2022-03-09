@@ -16,6 +16,7 @@ public class Hooks {
     public void setUp(){
         Driver.get().manage().window().maximize();
         Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
     }
 
     @After
@@ -24,7 +25,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
-        BrowserUtils.waitFor(2);
+   
         Driver.closeDriver();
     }
 
