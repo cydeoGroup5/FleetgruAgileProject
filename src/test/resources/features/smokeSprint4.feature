@@ -1,4 +1,4 @@
-@smoke @FLEETG-910
+@FLEETG-910
 Feature: Default
 
 	
