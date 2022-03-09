@@ -28,6 +28,7 @@ public class LoginStepDefs {
      */
     @When("user login as {string}")
     public void user_login_as(String userType) {
+
         loginPage.loginAsGivenUser(userType);
     }
 
@@ -61,6 +62,7 @@ public class LoginStepDefs {
 
     @And("user click login button")
     public void userClickLoginButton() {
+
         loginPage.loginBtn.click();
     }
 
@@ -82,6 +84,7 @@ public class LoginStepDefs {
 
     @When("user click Forgot Password? link")
     public void userClickForgotPasswordLink() {
+
         loginPage.forgotPasswordLink.click();
     }
 
@@ -99,11 +102,13 @@ public class LoginStepDefs {
 
     @When("user click Remember Me checkbox")
     public void userClickRememberMeCheckbox() {
+
         BrowserUtils.clickWithJS(loginPage.rememberMeBtn);
     }
 
     @Then("checkbox should be selected")
     public void checkbox_should_be_selected() {
+
         Assert.assertTrue(loginPage.rememberMeBtn.isSelected());
     }
 
@@ -114,6 +119,7 @@ public class LoginStepDefs {
 
     @When("user hit Enter key")
     public void user_hit_Enter_key() {
+
         loginPage.passwordInputBox.sendKeys(Keys.ENTER);
     }
 
@@ -124,5 +130,9 @@ public class LoginStepDefs {
         String actualUsername = dashboardPage.myUserName.getText();
         Assert.assertEquals(expectedUsername,actualUsername);
     }
+
+
+
+
 
 }
