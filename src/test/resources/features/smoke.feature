@@ -88,3 +88,39 @@
         | Horsepower                |
         | Horsepower Taxation       |
         | Power (KW)                |
+
+
+    @smoke @omer
+    Scenario Outline: Verify that user can create car
+      When user login as "store manager"
+      And user navigate to "Fleet" "Vehicles"
+      When user click Create Car button
+      And user fill the form
+        | License Plate                 | 290 JCC          |
+        | Tags                          | Senior           |
+        | Driver                        | <driverName>     |
+        | Location                      | Kentucky         |
+        | Chassis Number                | 1GNCS18Z3M011556 |
+        | Model Year                    | 2020             |
+        | Last Odometer                 | 2000             |
+        | Immatriculation Date          | Mar 1, 2020      |
+        | First Contract Date           | Mar 5, 2020      |
+        | Catalog Value (VAT Incl.) ($) | 23500            |
+        | Seats Number                  | 5                |
+        | Doors Number                  | 4                |
+        | Color                         | Blue             |
+        | Transmission                  | Automatic        |
+        | Fuel Type                     | Hybrid           |
+        | CO2 Emissions                 | 2.7              |
+        | Horsepower                    | 180              |
+        | Horsepower Taxation           | 200              |
+        | Power (KW)                    | 15000            |
+        | Logo                          | logo.png         |
+
+      When user choose "<saveButton>" option
+      Then user should see "Entity saved" message after saving
+      Examples:
+        | saveButton     | driverName        |
+        | Save           | Saruman the White |
+        | Save and New   | Gandalf the White |
+        | Save and Close | Gandalf the Grey  |
