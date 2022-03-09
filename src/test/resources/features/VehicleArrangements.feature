@@ -17,7 +17,7 @@ Feature: Vehicle Table Arrangements
       | 100 |
 
 
-  Scenario: default value View Per Page button
+  Scenario: Default value View Per Page button
 
     Then user should see default value is "25"
 
@@ -28,38 +28,44 @@ Feature: Vehicle Table Arrangements
     Then user can select any value in View Per Page menu
 
   @mst
-  Scenario Outline: ascending order clicking the <column> name
+  Scenario Outline: Ascending order clicking the <column> name
 
     When user click any "<column>"
     Then user should see "<column>" in "ascending" order
 
     Examples:
-      | column               |
-      | License Plate        |
-#      | Tags                 |
-#      | Driver               |
-#     | Location             |
-#      | Model Year           |
-#      | Chassis Number       |
-#      | Last Odometer        |
-#      | Immatriculation Date |
-#      | First Contract Date  |
-#      | CVVI                 |
-#      | Seats Number         |
-#      | Doors Number         |
-#      | Color                |
-#      | Transmission         |
-#      | Fuel Type            |
-#      | CO2 Emissions        |
-#      | Horsepower           |
-#      | Horsepower Taxation  |
-#      | Power (kW)           |
+      | column         |
+      | License Plate  |
+      | Tags           |
+      | Driver         |
+      | Location       |
+      | Model Year     |
+      | Chassis Number |
+      | Last Odometer  |
+      | Seats Number   |
 
 
-  Scenario Outline: descending order clicking the column name
+  Scenario Outline: Descending order clicking the column name
 
     When user click any "<column>" two times
     Then user should see "<column>" in "descending" order
     Examples:
-      | column               |
-      | Driver        |
+      | column              |
+      | Doors Number        |
+      | Color               |
+      | Transmission        |
+      | Fuel Type           |
+      | CO2 Emissions       |
+      | Horsepower Taxation |
+      | Power (kW)          |
+
+  @mst
+  Scenario Outline: User can remove all sorting
+
+    When user click any "<column>"
+    And user click on refresh button
+    Then user should see all sorting are removed
+
+    Examples:
+      | column |
+      | Driver |

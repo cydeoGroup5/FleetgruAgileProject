@@ -80,6 +80,9 @@ public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//a[contains(text(),'100')]")
     public WebElement viewPerPageOptions4;
 
+    @FindBy(xpath = "//body/div[@id='page']/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[3]/i[1]")
+    public WebElement refreshbtn;
+
     public List<String> getViewOptions(){
         List<String> groupView = new ArrayList<>();
 

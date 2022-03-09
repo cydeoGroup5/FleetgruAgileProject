@@ -91,4 +91,18 @@ public class VehicleTableStepDefs {
         BrowserUtils.waitFor(2);
     }
 
+    @When("user click on refresh button")
+    public void userClickOnRefreshButton() {
+        BrowserUtils.waitForClickablility(vp.refreshbtn,5);
+        vp.refreshbtn.click();
+        BrowserUtils.waitFor(2);
+
+    }
+
+    @Then("user should see all sorting are removed")
+    public void userShouldSeeAllSortingAreRemoved() {
+
+        Assert.assertFalse(vp.getColumnOrder("ascending","Driver"));
+
+    }
 }
