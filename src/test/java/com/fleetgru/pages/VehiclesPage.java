@@ -48,8 +48,7 @@ public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//*[contains(text(), 'Total of 169 records')]")
     public WebElement totalRecordings;
   
-    @FindBy(xpath = "//*[contains(text(), 'Total of 169 records')]")
-    public WebElement totalRecordings;
+
 
     @FindBy(xpath = "/html/body/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div/div[2]/div[2]/div/div/a")
     public WebElement exportBtn;
