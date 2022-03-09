@@ -1,3 +1,4 @@
+@mst
 Feature: Vehicle Table Arrangements
 
   Background:
@@ -27,7 +28,7 @@ Feature: Vehicle Table Arrangements
     When user click on View Per Page button
     Then user can select any value in View Per Page menu
 
-  @mst
+
   Scenario Outline: Ascending order clicking the <column> name
 
     When user click any "<column>"
@@ -45,7 +46,7 @@ Feature: Vehicle Table Arrangements
       | Seats Number   |
 
 
-  Scenario Outline: Descending order clicking the column name
+  Scenario Outline: Descending order clicking the <column> name
 
     When user click any "<column>" two times
     Then user should see "<column>" in "descending" order
@@ -59,7 +60,7 @@ Feature: Vehicle Table Arrangements
       | Horsepower Taxation |
       | Power (kW)          |
 
-  @mst
+
   Scenario Outline: User can remove all sorting
 
     When user click any "<column>"
