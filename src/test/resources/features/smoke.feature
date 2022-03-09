@@ -23,7 +23,7 @@ you see smoke branch is up to date with origin/smoke
 
 Feature: Smoke
 
-  @FLEETG-848 @FLEETG-851 @onur @smoke
+  @smoke @onur
   Scenario Outline: User can apply filters by typing the filter name, from the 'Manage Filters' menu.
     And user click "Manage Filter"
     When user apply filters by typing "<manage filters options>"
@@ -154,7 +154,7 @@ Feature: Smoke
       | store manager |
 
 
-  @Smoke @Cinar
+  @smoke @Cinar
   Scenario Outline: Verify to see the General Information page for driver
     Given user login as "<userType>"
     When the user navigates to "Fleet", "Vehicles"
@@ -165,3 +165,18 @@ Feature: Smoke
       | userType      |
       | sales manager |
       | store manager |
+
+
+    @smoke @mesut
+  Scenario Outline: Descending order clicking the <column> name
+    When user click any "<column>" two times
+    Then user should see "<column>" in "descending" order
+    Examples:
+      | column              |
+      | Doors Number        |
+      | Color               |
+      | Transmission        |
+      | Fuel Type           |
+      | CO2 Emissions       |
+      | Horsepower Taxation |
+      | Power (kW)          |
