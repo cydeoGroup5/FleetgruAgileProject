@@ -1,30 +1,11 @@
-/* 1) Please first update this branch
-while you are on branch smoke!
-git fetch
-git pull
-
-After updating smoke branch
-2) add your smoke scenarios  with @smoke and @yourName tag
-
-
-
-After adding your smoke scenario/s
-3)  add and commit your changes
-
-
-4) push your changes to remote smoke
-after you push your changes
-
-make sure
-git status
-you see smoke branch is up to date with origin/smoke
-
-*/
-
 Feature: Smoke
 
   @smoke @onur
   Scenario Outline: User can apply filters by typing the filter name, from the 'Manage Filters' menu.
+    Given user on the login page
+    Given user login as "sales manager"
+    Given user should navigate to "Fleet" "Vehicles" tab
+
     And user click "Manage Filter"
     When user apply filters by typing "<manage filters options>"
     Then the "<manage filters options>" should be seen and clickable
@@ -40,6 +21,7 @@ Feature: Smoke
 
   @smoke @yusuf
   Scenario: You do not have permission to perform this action message for driver
+    Given user on the login page
     When user login as "driver"
     And user should navigate to "Fleet" "Vehicles" tab
     And user hover over the three dots at the end of each row for driver
@@ -50,6 +32,7 @@ Feature: Smoke
 
   @smoke @yusuf
   Scenario Outline: Sales Manager and Store Manager can delete a car <userType>
+    Given user on the login page
     When user login as "<userType>"
     And user should navigate to "Fleet" "Vehicles" tab
     And user hover over the three dots at the end of each row
@@ -95,6 +78,7 @@ Feature: Smoke
 
   @smoke @omer
   Scenario Outline: Verify that user can create car
+    Given user on the login page
     When user login as "store manager"
     And user navigate to "Fleet" "Vehicles"
     When user click Create Car button
@@ -130,6 +114,7 @@ Feature: Smoke
 
   @smoke @arslan
   Scenario Outline: User can go to next page clicking ">" button and can go to previous page clicking "<" button
+    Given user on the login page
     Given user login as "<userType>"
     Given user should navigate to "Fleet" "Vehicles" tab
     Then User can click on a forward button
@@ -143,6 +128,7 @@ Feature: Smoke
 
   @smoke @arslan
   Scenario Outline: User can download table data in XLS or CSV format from "Export Grid"
+    Given user on the login page
     Given user login as "<userType>"
     Given user should navigate to "Fleet" "Vehicles" tab
     Then User can download XLS file from Export Grid
@@ -156,6 +142,7 @@ Feature: Smoke
 
   @smoke @Cinar
   Scenario Outline: Verify to see the General Information page for driver
+    Given user on the login page
     Given user login as "<userType>"
     When the user navigates to "Fleet", "Vehicles"
     And user clicks on the eye icon
@@ -167,8 +154,10 @@ Feature: Smoke
       | store manager |
 
 
-    @smoke @mesut
+  @smoke @mesut
   Scenario Outline: Descending order clicking the <column> name
+    Given user on the login page
+    Given user login as "sales manager"
     When user click any "<column>" two times
     Then user should see "<column>" in "descending" order
     Examples:

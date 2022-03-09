@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
         glue = "com/fleetgru/stepDefinitions",
         dryRun = false,
         tags = "@smoke"
+
 )
 
 public class CukesRunner {
