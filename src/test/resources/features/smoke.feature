@@ -1,6 +1,6 @@
 Feature: Smoke
 
-  @smoke @onur
+   @onur
   Scenario Outline: User can apply filters by typing the filter name, from the 'Manage Filters' menu.
     Given user on the login page
     Given user login as "sales manager"
@@ -19,7 +19,7 @@ Feature: Smoke
       | Model Year             |
       | Last Odometer          |
 
-  @smoke @yusuf
+   @yusuf
   Scenario: You do not have permission to perform this action message for driver
     Given user on the login page
     When user login as "driver"
@@ -30,7 +30,7 @@ Feature: Smoke
     When user clicks Yes Delete button
     Then "You do not have permission to perform this action." message should be displayed for driver
 
-  @smoke @yusuf
+   @yusuf
   Scenario Outline: Sales Manager and Store Manager can delete a car <userType>
     Given user on the login page
     When user login as "<userType>"
@@ -46,7 +46,7 @@ Feature: Smoke
       | sales manager |
       | store manager |
 
-  @smoke @zafer
+  @zafer
   Scenario: Column names in grid settings
     Given user on the login page
       #it can be any user type
@@ -76,7 +76,7 @@ Feature: Smoke
       | Power (KW)                |
 
 
-  @smoke @omer
+  @omer
   Scenario Outline: Verify that user can create car
     Given user on the login page
     When user login as "store manager"
@@ -112,7 +112,7 @@ Feature: Smoke
       | Save and New   | Gandalf the White |
       | Save and Close | Gandalf the Grey  |
 
-  @smoke @arslan
+  @arslan
   Scenario Outline: User can go to next page clicking ">" button and can go to previous page clicking "<" button
     Given user on the login page
     Given user login as "<userType>"
@@ -126,7 +126,7 @@ Feature: Smoke
       | store manager |
 
 
-  @smoke @arslan
+   @arslan
   Scenario Outline: User can download table data in XLS or CSV format from "Export Grid"
     Given user on the login page
     Given user login as "<userType>"
@@ -140,7 +140,7 @@ Feature: Smoke
       | store manager |
 
 
-  @smoke @Cinar
+  @Cinar
   Scenario Outline: Verify to see the General Information page for driver
     Given user on the login page
     Given user login as "<userType>"
@@ -154,7 +154,7 @@ Feature: Smoke
       | store manager |
 
 
-  @smoke @mesut
+  @mesut
   Scenario Outline: Descending order clicking the <column> name
     Given user on the login page
     Given user login as "sales manager"
