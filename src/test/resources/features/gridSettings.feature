@@ -9,7 +9,7 @@ Feature: Grid Settings Functionality
 
     Scenario: Grid settings should be visible when user clicks gear icon
       Then user should be able to see grid settings
-   @smoke
+
     Scenario: Column names in grid settings
       Then user should be able to see following options
         | Id                        |
