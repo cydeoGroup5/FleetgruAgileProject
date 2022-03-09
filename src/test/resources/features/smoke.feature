@@ -152,3 +152,16 @@ Feature: Smoke
       | driver        |
       | sales manager |
       | store manager |
+
+
+  @Smoke @Cinar
+  Scenario Outline: Verify to see the General Information page for driver
+    Given user login as "<userType>"
+    When the user navigates to "Fleet", "Vehicles"
+    And user clicks on the eye icon
+    Then the user should land on the "General Information"
+    Then the user should see "Add Event" "Delete" "Edit" buttons
+    Examples:
+      | userType      |
+      | sales manager |
+      | store manager |
