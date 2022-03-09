@@ -11,6 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+import java.util.Map;
+
 public abstract class BasePage {
     public BasePage(){
         PageFactory.initElements(Driver.get(),this);
@@ -85,5 +88,6 @@ public abstract class BasePage {
         Driver.get().findElement(By.id("user-menu")).click();
         Driver.get().findElement(By.linkText("Logout")).click();
     }
+
 
 }

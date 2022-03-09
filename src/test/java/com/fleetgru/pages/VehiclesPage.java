@@ -3,9 +3,14 @@ package com.fleetgru.pages;
 import com.fleetgru.utilities.BrowserUtils;
 import com.fleetgru.utilities.Driver;
 import org.apache.commons.io.filefilter.FalseFileFilter;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class VehiclesPage extends BasePage{
 
@@ -59,6 +64,61 @@ public class VehiclesPage extends BasePage{
 
     @FindBy(xpath = "//body/div[@id='page']/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div[1]/table[1]")
     public WebElement table;
+
+    @FindBy(xpath = "//button[contains(@class,'btn dropdown-toggle')]")
+    public WebElement viewPerPage;
+
+    @FindBy(xpath = "//body/div[@id='page']/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]")
+    public WebElement viewPerPageOptions1;
+
+    @FindBy(xpath = "//a[contains(text(),'25')]")
+    public WebElement viewPerPageOptions2;
+
+    @FindBy(xpath = "//a[contains(text(),'50')]")
+    public WebElement viewPerPageOptions3;
+
+    @FindBy(xpath = "//a[contains(text(),'100')]")
+    public WebElement viewPerPageOptions4;
+
+    @FindBy(xpath = "//body/div[@id='page']/div[2]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[3]/i[1]")
+    public WebElement refreshbtn;
+
+    public List<String> getViewOptions(){
+        List<String> groupView = new ArrayList<>();
+
+        for (WebElement element : Driver.get().findElements(By.cssSelector(".dropdown-item"))) {
+            groupView.add(element.getText().trim());
+        }
+
+        return groupView;
+
+    }
+
+    public boolean getColumnOrder(String order,String column){
+        List<String> drivers = new ArrayList<>();
+        List<String> sortedDrivers = new ArrayList<>();
+
+        for (int i = 10; i <= 15; i++) {
+            drivers.add(Driver.get().findElement(By.xpath("(//tbody/tr/td[contains(@data-column-label,'"+column+"')])["+i+"]")).getText());
+            sortedDrivers.add(Driver.get().findElement(By.xpath("(//tbody/tr/td[contains(@data-column-label,'"+column+"')])["+i+"]")).getText());
+        }
+
+        Collections.sort(sortedDrivers);
+
+        switch (order){
+            case"ascending":
+                break;
+            case"descending":
+                Collections.reverse(sortedDrivers);
+                break;
+        }
+
+        if(sortedDrivers.equals(drivers)){
+          return true;
+      }
+      return false;
+    }
+
 
     public void clickDeleteButton(){
         for (WebElement webElement : Driver.get().findElements(By.xpath("//a[@title='Delete']"))) {

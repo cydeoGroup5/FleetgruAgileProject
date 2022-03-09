@@ -106,7 +106,7 @@ public class DeleteCarStepDef {
 
     @Then("the corresponding car should also be removed from the Fleet-Vehicle page.")
     public void theCorrespondingCarShouldAlsoBeRemovedFromTheFleetVehiclePage() {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(3);
         String tableInfo = new VehiclesPage().table.getText();
         System.out.println("tableInfo = " + tableInfo);
         Assert.assertFalse(tableInfo.contains(deletedCarInfo));
