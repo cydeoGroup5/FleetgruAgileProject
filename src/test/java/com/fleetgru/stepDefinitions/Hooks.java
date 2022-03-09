@@ -1,5 +1,6 @@
 package com.fleetgru.stepDefinitions;
 
+import com.fleetgru.utilities.BrowserUtils;
 import com.fleetgru.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -24,7 +25,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
-
+   
         Driver.closeDriver();
     }
 
